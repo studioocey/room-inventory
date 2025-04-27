@@ -146,12 +146,12 @@
             <p><strong>Location:</strong> ${item["Storage Unit"]} > ${item["Drawer/Section"]} > ${item["Container"]}</p>
             <p><strong>Quantity:</strong> ${item["Quantity"]}</p>
              <!-- Highlight Button -->
-            <button class="highlight-btn" data-location="${item["Storage Unit"]} > ${item["Drawer/Section"]} > ${item["Container"]}">Highlight Location</button>
+            <button class="highlight-btn" data-location="${item["Storage Unit"]} > ${item["Drawer/Section"]} > ${item["Container"]}">Locate</button>
           </div>
         `;
       });
 
-        // Add event listeners to each "Highlight Location" button
+        // Add event listeners to each "Locate" button
   const highlightButtons = document.querySelectorAll('.highlight-btn');
   highlightButtons.forEach(button => {
     button.addEventListener('click', function() {
