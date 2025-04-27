@@ -1,0 +1,41 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+  }
+  
+  #searchBar {
+    padding: 8px;
+    width: 250px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  #mapContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #craftMap {
+    width: 800px; /* Adjust based on your map size */
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  #marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 221, 0, 0.8); /* Semi-transparent yellow */
+    border-radius: 50%;
+    border: 2px solid white;
+    display: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(255, 200, 0, 0.8);
+  }
