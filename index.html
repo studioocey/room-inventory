@@ -163,6 +163,19 @@
     });
   });
 }
+    // Add event listeners to each "Show/Hide Details" button
+  const toggleDetailButtons = document.querySelectorAll('.toggle-details-btn');
+  toggleDetailButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const locationDetails = this.previousElementSibling;  // Get the location details div
+      const isVisible = locationDetails.style.display === 'block';
+
+      // Toggle visibility
+      locationDetails.style.display = isVisible ? 'none' : 'block';
+      this.textContent = isVisible ? 'Show Location Details' : 'Hide Location Details';  // Toggle button text
+    });
+  });
+}
 
     fetch(sheetURL)
       .then(response => response.json())
