@@ -2,39 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ocey's Room Inventory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item Locator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Ocey's Room Inventory ₊˚⊹♡ ᓚ₍ ^. .^₎</h1>
+  <h1>Item Locator</h1>
 
+  <!-- Search Box -->
   <input type="text" id="search-box" placeholder="Search for an item...">
-
-  <!-- Map Image of Craft Room -->
-  <div id="room-map">
-    <img src="room-map.jpg" alt="Room Map" style="width:100%;">
-    <!-- Highlight boxes will be dynamically added here -->
-  </div>
 
   <!-- Filters -->
   <div id="filters">
     <select id="type-filter">
       <option value="">Filter by Type</option>
-      <option value="Glue">Glue</option>
-      <option value="Cutting">Cutting</option>
+      <option value="Type1">Type 1</option>
+      <option value="Type2">Type 2</option>
       <!-- Add more types as needed -->
     </select>
 
     <select id="category-filter">
       <option value="">Filter by Category</option>
-      <option value="Stationery">Stationery</option>
-      <option value="Tools">Tools</option>
+      <option value="Category1">Category 1</option>
+      <option value="Category2">Category 2</option>
       <!-- Add more categories as needed -->
     </select>
   </div>
-  
-  <!-- List of items -->
+
+  <!-- Room Map -->
+  <div id="room-map" class="room-map">
+    <!-- The room map with areas will be rendered here -->
+  </div>
+
+  <!-- Item List -->
   <div id="item-list"></div>
 
   <script src="script.js"></script>
