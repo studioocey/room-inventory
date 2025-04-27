@@ -21,7 +21,7 @@ body {
     display: inline-block;
   }
   
-  #craftMap {
+  #roomMap {
     width: 800px; /* Adjust based on your map size */
     height: auto;
     border: 2px solid #ccc;
