@@ -1,1 +1,1 @@
-hi this is my room inventory
+hi this is my room inventory.
