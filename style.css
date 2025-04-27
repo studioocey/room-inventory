@@ -119,4 +119,19 @@
   margin-bottom: 10px;
 }
 
+.highlight-btn {
+  background-color: #ff69b4;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.highlight-btn:hover {
+  background-color: #ff82a9;
+}
+
 </style>
