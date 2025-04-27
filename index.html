@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Craft Room Inventory</title>
+  <title>Ocey's Room Inventory</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: Lato, sans-serif;
       margin: 20px;
       background: #fafafa;
     }
@@ -23,7 +23,7 @@
       font-size: 16px;
     }
 
-    #craft-map {
+    #room-map {
       display: block;
       margin: 30px auto;
       max-width: 600px;
@@ -72,13 +72,13 @@
 
 <body>
 
-  <h1>📚 My Craft Room Inventory 📚</h1>
+  <h1>📚 Ocey's Room Inventory 📚</h1>
 
   <input type="text" id="search-box" placeholder="Search for an item...">
 
   <!-- Map Image of Craft Room -->
-  <div id="craft-map">
-    <img src="your-craft-room-map.jpg" alt="Craft Room Map" style="width:100%;">
+  <div id="room-map">
+    <img src="room-map.jpg" alt="Room Map" style="width:100%;">
     <!-- Highlight boxes will be dynamically added here -->
   </div>
 
@@ -86,7 +86,7 @@
   <div id="item-list"></div>
 
   <script>
-    const sheetURL = 'https://opensheet.vercel.app/YOUR-SHEET-ID/YOUR-SHEET-NAME';
+    const sheetURL = 'https://opensheet.vercel.app/1j9lTOCZ3EaqZMTt00uMsmchipkGGIKTtcNPFTDGShvk/Sheet1';
 
     let itemsData = [];
 
@@ -98,7 +98,7 @@
     };
 
     function highlightLocation(locationName) {
-      const map = document.getElementById('craft-map');
+      const map = document.getElementById('room-map');
       // Remove old highlights
       document.querySelectorAll('.highlight').forEach(el => el.remove());
 
