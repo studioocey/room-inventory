@@ -1,3 +1,4 @@
+<style>
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
@@ -56,9 +57,10 @@ h1 {
 }
 
 #item-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 .item-card {
@@ -98,16 +100,17 @@ img.item-img {
   font-size: 14px;
 }
 
-.locate-item-btn {
-  background-color: #ff82a9;
-  color: white;
-  padding: 8px 16px;
-  border: none;
+.item {
+  padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: #f9f9f9;
 }
 
-.locate-item-btn:hover {
-  background-color: #ffb3d6;
+.item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
 }
+</style>
