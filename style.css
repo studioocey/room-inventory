@@ -134,4 +134,28 @@
   background-color: #ff82a9;
 }
 
+.location-details {
+  display: none; /* Initially hide the location details */
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6b4e71;
+}
+
+.toggle-details-btn {
+  background-color: #ff82a9;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.toggle-details-btn:hover {
+  background-color: #ff69b4;
+}
+
+
 </style>
