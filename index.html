@@ -82,10 +82,7 @@
     <!-- Highlight boxes will be dynamically added here -->
   </div>
 
-  <!-- List of items -->
-  <div id="item-list"></div>
-
-  <div id="filters">
+    <div id="filters">
   <select id="type-filter">
     <option value="">Filter by Type</option>
     <option value="Glue">Glue</option>
@@ -100,8 +97,10 @@
     <!-- Add more categories as needed -->
   </select>
 </div>
+  
+  <!-- List of items -->
+  <div id="item-list"></div>
 
-<div id="item-list"></div>
 
 
 </div>
@@ -151,58 +150,6 @@
       });
     }
 
-    fetch(sheetURL)
-      .then(response => response.json())
-      .then(data => {
-        itemsData = data;
-        displayItems(itemsData);
-      });
-
-    document.getElementById('search-box').addEventListener('input', function(e) {
-      const keyword = e.target.value.toLowerCase();
-      const filtered = itemsData.filter(item => 
-        item["Item Name"].toLowerCase().includes(keyword)
-      );
-
-      displayItems(filtered);
-
-      if (filtered.length === 1) {
-        const loc = `${filtered[0]["Storage Unit"]} > ${filtered[0]["Drawer/Section"]} > ${filtered[0]["Container"]}`;
-        highlightLocation(loc);
-      } else {
-        highlightLocation(null);
-      }
-    });
-    fetch(googleSheetUrl)
-  .then(response => response.json())
-  .then(data => {
-    // Process your data
-    const items = data.map(item => ({
-      ItemName: item.Name,
-      Location: item.Location,
-      ImageURL: item.ImageURL,
-      Type: item.Type,
-      Category: item.Category
-    }));
-
-    // Initial display
-    displayItems(items);
-
-    // Listen for filter changes
-    document.getElementById('type-filter').addEventListener('change', function() {
-      const type = this.value;
-      const category = document.getElementById('category-filter').value;
-      const filteredItems = filterItems(items, type, category);
-      displayItems(filteredItems);
-    });
-
-    document.getElementById('category-filter').addEventListener('change', function() {
-      const category = this.value;
-      const type = document.getElementById('type-filter').value;
-      const filteredItems = filterItems(items, type, category);
-      displayItems(filteredItems);
-    });
-  });
 
   </script>
 
