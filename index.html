@@ -150,6 +150,29 @@
       });
     }
 
+    fetch(sheetURL)
+      .then(response => response.json())
+      .then(data => {
+        itemsData = data;
+        displayItems(itemsData);
+      });
+
+    document.getElementById('search-box').addEventListener('input', function(e) {
+      const keyword = e.target.value.toLowerCase();
+      const filtered = itemsData.filter(item => 
+        item["Item Name"].toLowerCase().includes(keyword)
+      );
+
+      displayItems(filtered);
+
+      if (filtered.length === 1) {
+        const loc = `${filtered[0]["Storage Unit"]} > ${filtered[0]["Drawer/Section"]} > ${filtered[0]["Container"]}`;
+        highlightLocation(loc);
+      } else {
+        highlightLocation(null);
+      }
+    });
+
 
   </script>
 
