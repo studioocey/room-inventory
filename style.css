@@ -88,4 +88,35 @@
     margin-bottom: 10px;
     box-shadow: 0 0 8px rgba(255, 182, 193, 0.5);
   }
+#filters {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+#filters select {
+  padding: 8px;
+  font-size: 14px;
+}
+
+#item-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
 </style>
