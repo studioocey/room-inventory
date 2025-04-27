@@ -38,11 +38,7 @@
       container.innerHTML += `
         <div class="item-card">
           <img class="item-img" src="${item["Image URL"]}" alt="${item["Item Name"]}">
-          <h3>${item["Item Name"]}</h3>
-          <div class="location-details">
-          <p><strong>Location:</strong> ${item["Storage Unit"]} > ${item["Drawer/Section"]} > ${item["Container"]}</p>
-        </div>
-        <button class="toggle-details-btn">Show</button>
+          <h3>${item["Item Name"]}</h3<
           <p><strong>Quantity:</strong> ${item["Quantity"]}</p>
         </div>
       `;
@@ -116,19 +112,5 @@ document.getElementById('category-filter').addEventListener('change', function()
   const filteredItems = filterItems(items, type, category);
   displayItems(filteredItems);
 });
-
-// Add event listeners to each "Show/Hide Details" button
-  const toggleDetailButtons = document.querySelectorAll('.toggle-details-btn');
-  toggleDetailButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const locationDetails = this.previousElementSibling;  // Get the location details div
-      const isVisible = locationDetails.style.display === 'block';
-
-      // Toggle visibility
-      locationDetails.style.display = isVisible ? 'none' : 'block';
-      this.textContent = isVisible ? 'Show Location Details' : 'Hide Location Details';  // Toggle button text
-    });
-  });
-}
     
 </script>
