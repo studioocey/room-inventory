@@ -3,7 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <title>Ocey's Room Inventory</title>
-  <style src="style.css"></style>
+  <style>
+    body {
+      font-family: Lato, sans-serif;
+      margin: 20px;
+      background: #fafafa;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6b4e71;
+    }
+
+    #search-box {
+      display: block;
+      margin: 20px auto;
+      width: 300px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    #room-map {
+      display: block;
+      margin: 30px auto;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .highlight {
+      position: absolute;
+      border: 3px solid #ff69b4;
+      background: rgba(255, 182, 193, 0.4);
+      pointer-events: none;
+      animation: blink 1s infinite alternate;
+    }
+
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.5; }
+    }
+
+    #item-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .item-card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    img.item-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 
 <body>
@@ -41,7 +105,76 @@
 
 </div>
 
-  <script src="script.js"></script>
+  <script>
+    const sheetURL = 'https://opensheet.vercel.app/1j9lTOCZ3EaqZMTt00uMsmchipkGGIKTtcNPFTDGShvk/Sheet1';
+
+    let itemsData = [];
+
+    // Define manual coordinates for storage areas (example)
+    const locationAreas = {
+      "Wardrobe > Upper Right Drawer > Small Container": { top: 50, left: 300, width: 50, height: 50 },
+      "Desk > Top Left Drawer": { top: 200, left: 150, width: 60, height: 60 },
+      // add more areas here!
+    };
+
+    function highlightLocation(locationName) {
+      const map = document.getElementById('room-map');
+      // Remove old highlights
+      document.querySelectorAll('.highlight').forEach(el => el.remove());
+
+      const area = locationAreas[locationName];
+      if (area) {
+        const highlight = document.createElement('div');
+        highlight.className = 'highlight';
+        highlight.style.top = area.top + 'px';
+        highlight.style.left = area.left + 'px';
+        highlight.style.width = area.width + 'px';
+        highlight.style.height = area.height + 'px';
+        map.appendChild(highlight);
+      }
+    }
+
+    function displayItems(data) {
+      const container = document.getElementById('item-list');
+      container.innerHTML = '';
+
+      data.forEach(item => {
+        container.innerHTML += `
+          <div class="item-card">
+            <img class="item-img" src="${item["Image URL"]}" alt="${item["Item Name"]}">
+            <h3>${item["Item Name"]}</h3>
+            <p><strong>Location:</strong> ${item["Storage Unit"]} > ${item["Drawer/Section"]} > ${item["Container"]}</p>
+            <p><strong>Quantity:</strong> ${item["Quantity"]}</p>
+          </div>
+        `;
+      });
+    }
+
+    fetch(sheetURL)
+      .then(response => response.json())
+      .then(data => {
+        itemsData = data;
+        displayItems(itemsData);
+      });
+
+    document.getElementById('search-box').addEventListener('input', function(e) {
+      const keyword = e.target.value.toLowerCase();
+      const filtered = itemsData.filter(item => 
+        item["Item Name"].toLowerCase().includes(keyword)
+      );
+
+      displayItems(filtered);
+
+      if (filtered.length === 1) {
+        const loc = `${filtered[0]["Storage Unit"]} > ${filtered[0]["Drawer/Section"]} > ${filtered[0]["Container"]}`;
+        highlightLocation(loc);
+      } else {
+        highlightLocation(null);
+      }
+    });
+
+
+  </script>
 
 </body>
 </html>
