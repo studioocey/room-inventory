@@ -4,7 +4,7 @@
   let itemsData = [];
 
   const locationAreas = {
-    "Wardrobe > Upper Right Drawer > Small Container": { top: 50, left: 300, width: 60, height: 60 },
+    "Wardrobe > 2 > Yellow Box": { top: 50, left: 300, width: 60, height: 60 },
     "Desk > Top Left Drawer": { top: 200, left: 150, width: 80, height: 80 },
     // add more areas here
   };
