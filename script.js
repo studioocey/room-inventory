@@ -1,3 +1,4 @@
+<script>
 const sheetURL = 'https://opensheet.vercel.app/1j9lTOCZ3EaqZMTt00uMsmchipkGGIKTtcNPFTDGShvk/Sheet1';
 
 let itemsData = [];
@@ -100,3 +101,5 @@ document.getElementById('category-filter').addEventListener('change', function()
   const filteredItems = filterItems(itemsData, type, category);
   displayItems(filteredItems);
 });
+
+</script>
