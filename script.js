@@ -1,6 +1,6 @@
 const inventory = [
     { name: "Gold Washi Tape", x: 120, y: 200 },
-    { name: "Pink Stickers", x: 300, y: 150 },
+    { name: "Stickers", x: 300, y: 150 },
     { name: "Glue Gun", x: 400, y: 280 },
     { name: "Acrylic Paint Set", x: 600, y: 320 },
     // Add your items here!
