@@ -173,6 +173,37 @@
         highlightLocation(null);
       }
     });
+    fetch(googleSheetUrl)
+  .then(response => response.json())
+  .then(data => {
+    // Process your data
+    const items = data.map(item => ({
+      ItemName: item.Name,
+      Location: item.Location,
+      ImageURL: item.ImageURL,
+      Type: item.Type,
+      Category: item.Category
+    }));
+
+    // Initial display
+    displayItems(items);
+
+    // Listen for filter changes
+    document.getElementById('type-filter').addEventListener('change', function() {
+      const type = this.value;
+      const category = document.getElementById('category-filter').value;
+      const filteredItems = filterItems(items, type, category);
+      displayItems(filteredItems);
+    });
+
+    document.getElementById('category-filter').addEventListener('change', function() {
+      const category = this.value;
+      const type = document.getElementById('type-filter').value;
+      const filteredItems = filterItems(items, type, category);
+      displayItems(filteredItems);
+    });
+  });
+
   </script>
 
 </body>
