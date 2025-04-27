@@ -67,5 +67,51 @@
     } else {
       highlightLocation(null);
     }
+
+    // Function to filter items based on selected type and category
+function filterItems(items, type, category) {
+  return items.filter(item => {
+    // Filter based on type and category
+    const typeMatch = type ? item.Type === type : true;
+    const categoryMatch = category ? item.Category === category : true;
+    return typeMatch && categoryMatch;
   });
+}
+
+// Function to display items
+function displayItems(items) {
+  const itemListDiv = document.getElementById('item-list');
+  itemListDiv.innerHTML = ''; // Clear previous items
+
+  items.forEach(item => {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('item');
+
+    itemDiv.innerHTML = `
+      <img src="${item.ImageURL}" alt="${item.ItemName}">
+      <h3>${item.ItemName}</h3>
+      <p>Location: ${item.Location}</p>
+      <p>Type: ${item.Type}</p>
+      <p>Category: ${item.Category}</p>
+    `;
+    
+    itemListDiv.appendChild(itemDiv);
+  });
+}
+
+// Event listeners for filter changes
+document.getElementById('type-filter').addEventListener('change', function() {
+  const type = this.value;
+  const category = document.getElementById('category-filter').value;
+  const filteredItems = filterItems(items, type, category);
+  displayItems(filteredItems);
+});
+
+document.getElementById('category-filter').addEventListener('change', function() {
+  const category = this.value;
+  const type = document.getElementById('type-filter').value;
+  const filteredItems = filterItems(items, type, category);
+  displayItems(filteredItems);
+});
+    
 </script>
